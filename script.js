@@ -29,11 +29,12 @@ function Book(title,author,pages,isRead){
     this.div.appendChild(this.p2);
     this.div.appendChild(this.button);
     
-    body.appendChild(this.div)
+    //body.appendChild(this.div)
     
 }
 
 function addBook(e){
+    e.preventDefault();
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
@@ -42,4 +43,9 @@ function addBook(e){
     const book = new Book(title,author,pages,read);
 
     library.push(book);
+    displayBooks();
+}
+
+function displayBooks(){
+    library.forEach(book => body.appendChild(book.div));
 }
