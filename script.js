@@ -30,6 +30,7 @@ function Book(title,author,pages,isRead){
     this.div.appendChild(this.button);
     
     body.appendChild(this.div)
+    
 }
 
 function addBook(e){
