@@ -6,3 +6,7 @@ function Book(title,author,pages,isRead){
     this.pages = pages;
     this.isRead = isRead;
 }
+
+function getBook(e){
+    e.preventDefault();
+}
