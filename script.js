@@ -32,12 +32,21 @@ Book.prototype.makeCard = function (){
     p2.textContent = this.pages;
     
     var button = document.createElement('button');
-    button.textContent = this.isRead;
+    button.textContent = this.isRead ? 'Read' : 'Not Read';
+    button.classList.add(`${this.isRead ? 'read' : 'not-read'}`);
+
+
+    var button2 = document.createElement('button');
+    button2.textContent = 'Remove';
+    button.classList.add('delete');
+
     
     this.div.appendChild(h3);
     this.div.appendChild(p);
     this.div.appendChild(p2);
     this.div.appendChild(button);
+    this.div.appendChild(button2);
+
 }
 
 
