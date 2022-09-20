@@ -1,6 +1,6 @@
 var library = [];
 
-var body = document.querySelector('body');
+var shelves = document.querySelector('.cards');
 
 function Book(title,author,pages,isRead){
     this.title = title;
@@ -11,27 +11,35 @@ function Book(title,author,pages,isRead){
     this.div = document.createElement('div');
     this.div.classList.add('card');
     
-    this.h3 = document.createElement('h3');
-    this.h3.textContent = this.title;
     
     
-    this.p = document.createElement('p');
-    this.p.textContent = this.author;
-    
-    this.p2 = document.createElement('p');
-    this.p2.textContent = this.pages;
-    
-    this.button = document.createElement('button');
-    this.button.textContent = this.isRead;
-    
-    this.div.appendChild(this.h3);
-    this.div.appendChild(this.p);
-    this.div.appendChild(this.p2);
-    this.div.appendChild(this.button);
-    
-    //body.appendChild(this.div)
+    //shelves.appendChild(this.div)
     
 }
+
+
+
+
+Book.prototype.makeCard = function (){
+    var h3 = document.createElement('h3');
+    h3.textContent = this.title;
+    
+    
+    var p = document.createElement('p');
+    p.textContent = this.author;
+    
+    var p2 = document.createElement('p');
+    p2.textContent = this.pages;
+    
+    var button = document.createElement('button');
+    button.textContent = this.isRead;
+    
+    this.div.appendChild(h3);
+    this.div.appendChild(p);
+    this.div.appendChild(p2);
+    this.div.appendChild(button);
+}
+
 
 function addBook(e){
     e.preventDefault();
@@ -41,11 +49,13 @@ function addBook(e){
     const read = document.getElementById('read').checked;
 
     const book = new Book(title,author,pages,read);
+    console.log(book)
+    book.makeCard();
 
     library.push(book);
     displayBooks();
 }
 
 function displayBooks(){
-    library.forEach(book => body.appendChild(book.div));
+    library.forEach(book => shelves.appendChild(book.div));
 }
