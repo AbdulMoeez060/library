@@ -117,13 +117,14 @@ function updateShelve(e){
         var card = e.target.parentElement;
         library.forEach(book=> {
             if(book.title === card.getAttribute('data-book')){
-                document.querySelector(`.${book.isRead ? 'read' : 'not-read'}`).textContent = `${book.isRead ? 'Not Read' : 'Read'}`
                 
-                var button = document.querySelector(`.${book.isRead ? 'read' : 'not-read'}`);
+
+                e.target.textContent = `${book.isRead ? 'Not Read' : 'Read'}`
+
+                e.target.classList.remove(`${book.isRead ? 'read' : 'not-read'}`);
                 
-                button.classList.remove(`${book.isRead ? 'read' : 'not-read'}`);
                 book.isRead = !book.isRead;
-                button.classList.add(`${book.isRead ? 'read' : 'not-read'}`);
+                e.target.classList.add(`${book.isRead ? 'read' : 'not-read'}`);
             }
         });
 
