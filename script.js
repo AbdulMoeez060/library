@@ -26,9 +26,9 @@ window.addEventListener("click", windowOnClick);
 
 
 function Book(title,author,pages,isRead){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
+    this.title = `"${title}"`;
+    this.author = `By '${author}'`;
+    this.pages = `${pages} pages`;
     this.isRead = isRead;
 
     this.div = document.createElement('div');
