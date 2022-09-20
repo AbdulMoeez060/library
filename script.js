@@ -64,8 +64,8 @@ function addBook(e){
     document.getElementById('author').value = ''
     const pages = document.getElementById('pages').value;
     document.getElementById('pages').value=''
-    const read = document.getElementById('read').checked;
-    document.getElementById('read').checked = false;
+    const read = document.getElementById('read-status').checked;
+    document.getElementById('read-status').checked = false;
 
     const book = new Book(title,author,pages,read);
 
@@ -87,5 +87,26 @@ function updateShelve(e){
         var card = e.target.parentElement;
         library = library.filter(book=> !(book.title === card.getAttribute('data-book')));
         shelves.removeChild(card);
+    }
+    else if(e.target.className === 'read' || e.target.className === 'not-read'){
+        var card = e.target.parentElement;
+        library.forEach(book=> {
+            if(book.title === card.getAttribute('data-book')){
+                document.querySelector(`.${book.isRead ? 'read' : 'not-read'}`).textContent = `${book.isRead ? 'Not Read' : 'Read'}`
+                
+                var button = document.querySelector(`.${book.isRead ? 'read' : 'not-read'}`);
+                
+                button.classList.remove(`${book.isRead ? 'read' : 'not-read'}`)
+                book.isRead = !book.isRead;
+                button.classList.add(`${book.isRead ? 'read' : 'not-read'}`)
+
+                //button.textContent = `${book.isRead ? 'Read' : 'Not Read'}`
+
+            }
+        });
+
+        
+
+
     }
 }
