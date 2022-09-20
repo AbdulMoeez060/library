@@ -3,6 +3,10 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    --header : #2C3333;
+    --body : #395B64;
+    --primary: #A5C9CA;
+    --secondary: #E7F6F2;
 }
 h3{
     padding: 0;
@@ -10,7 +14,8 @@ h3{
 }
 
 header{
-    background-color: #fffbfb;
+    background-color: var(--header);
+    color: var(--secondary);
     height: 12vh;
     display: flex;
     align-items: center;
@@ -22,7 +27,7 @@ header{
     -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.58);
 }
 body{
-    background-color: #f0eef1;
+    background-color: var(--body);
 }
 .cards{
     margin: 40px 10% 40px 10%;
@@ -34,7 +39,9 @@ body{
 
 .card{
     display: flex;
-    background-color: #fffbfb;
+    background-color: var(--header);
+    color: var(--secondary);
+
     width: 300px;
     height: 250px;
     flex-direction: column;
@@ -64,7 +71,7 @@ body{
 }
 
 .delete{
-    background-color: #e5e2e7;
+    background-color: var(--body);
 }
 
 .read:hover,.not-read:hover,.delete:hover{
@@ -73,7 +80,7 @@ body{
 }
 
 .trigger,.close{
-    background-color: black;
+    background-color: var(--header);
     color: white;
     position: fixed;
     bottom: 25px;
@@ -105,7 +112,7 @@ body{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.322);
     opacity: 0;
     visibility: hidden;
     transform: scale(1.1);
@@ -117,7 +124,8 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #F0EEF1;
+    background-color: var(--header);
+    color: var(--secondary);
     padding: 10px 20px 20px 20px;
     width: 250px;
     height: 350px;
@@ -141,6 +149,8 @@ input[type='text'],input[type='number']{
     border: none;
     outline: none;
     font-size: 18px;
+    background-color: var(--primary);
+
 }
 
 button[type='submit']{
