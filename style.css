@@ -11,7 +11,7 @@ h3{
 
 header{
     background-color: #fffbfb;
-    height: 15vh;
+    height: 12vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,7 +25,7 @@ body{
     background-color: #f0eef1;
 }
 .cards{
-    margin: 40px 10% 0 10%;
+    margin: 40px 10% 40px 10%;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
     gap: 40px;
@@ -36,12 +36,11 @@ body{
     display: flex;
     background-color: #fffbfb;
     width: 300px;
-    height: 200px;
+    height: 250px;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px;
-    line-height: 1.2;
     font-size: 20px;
     border-radius: 10px;
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
@@ -49,8 +48,34 @@ body{
     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
 }
 
+.read,.not-read,.delete{
+    width: 100%;
+    height: 32px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.read{
+    background-color: #9fff9c;
+}
+.not-read{
+    background-color: rgb(255, 142, 140);
+}
+
+.delete{
+    background-color: #e5e2e7;
+}
+
+.read:hover,.not-read:hover,.delete:hover{
+    filter: brightness(90%);
+
+}
+
 .trigger,.close{
-    position: absolute;
+    background-color: black;
+    color: white;
+    position: fixed;
     bottom: 25px;
     right: 30px;
     border-radius: 50%;
@@ -60,6 +85,9 @@ body{
     font-size: 24px;
 
 
+}
+.trigger:hover,.close:hover{
+    opacity: 80%;
 }
 .trigger::before{
     content: "+";
