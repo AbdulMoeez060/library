@@ -2,6 +2,7 @@ var library = [];
 
 var shelves = document.querySelector('.cards');
 
+
 function Book(title,author,pages,isRead){
     this.title = title;
     this.author = author;
@@ -53,12 +54,19 @@ Book.prototype.makeCard = function (){
 function addBook(e){
     e.preventDefault();
     const title = document.getElementById('title').value;
+    document.getElementById('title').value = '';
     const author = document.getElementById('author').value;
+    document.getElementById('author').value = ''
     const pages = document.getElementById('pages').value;
+    document.getElementById('pages').value=''
     const read = document.getElementById('read').checked;
+    document.getElementById('read').checked = false;
 
     const book = new Book(title,author,pages,read);
-    console.log(book)
+
+
+
+
     book.makeCard();
 
     library.push(book);
@@ -68,3 +76,4 @@ function addBook(e){
 function displayBooks(){
     library.forEach(book => shelves.appendChild(book.div));
 }
+
