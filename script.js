@@ -5,6 +5,28 @@ var shelves = document.querySelector('.cards');
 shelves.addEventListener('click',updateShelve);
 
 
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+//const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+    trigger.classList.toggle("trigger");
+    trigger.classList.toggle("close");
+
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+//closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+
 function Book(title,author,pages,isRead){
     this.title = title;
     this.author = author;
@@ -73,14 +95,19 @@ function addBook(e){
 
 
     book.makeCard();
+    toggleModal();
 
     library.push(book);
     displayBooks();
 }
 
+
+
 function displayBooks(){
     library.forEach(book => {shelves.appendChild(book.div)});
 }
+
+
 
 function updateShelve(e){
     if(e.target.className === 'delete'){
@@ -96,12 +123,9 @@ function updateShelve(e){
                 
                 var button = document.querySelector(`.${book.isRead ? 'read' : 'not-read'}`);
                 
-                button.classList.remove(`${book.isRead ? 'read' : 'not-read'}`)
+                button.classList.remove(`${book.isRead ? 'read' : 'not-read'}`);
                 book.isRead = !book.isRead;
-                button.classList.add(`${book.isRead ? 'read' : 'not-read'}`)
-
-                //button.textContent = `${book.isRead ? 'Read' : 'Not Read'}`
-
+                button.classList.add(`${book.isRead ? 'read' : 'not-read'}`);
             }
         });
 
