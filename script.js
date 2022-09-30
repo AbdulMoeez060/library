@@ -72,55 +72,10 @@ class Book{
 }
 
 
-function Book(title,author,pages,isRead){
-    this.title = `"${title}"`;
-    this.author = `By '${author}'`;
-    this.pages = `${pages} pages`;
-    this.isRead = isRead;
-
-    this.div = document.createElement('div');
-    this.div.classList.add('card');
-    
-    
-    
-    //shelves.appendChild(this.div)
-    
-}
 
 
 
 
-Book.prototype.makeCard = function (){
-
-    this.div.setAttribute('data-book', this.title)
-
-    var h3 = document.createElement('h3');
-    h3.textContent = this.title;
-    
-    
-    var p = document.createElement('p');
-    p.textContent = this.author;
-    
-    var p2 = document.createElement('p');
-    p2.textContent = this.pages;
-    
-    var button = document.createElement('button');
-    button.textContent = this.isRead ? 'Read' : 'Not Read';
-    button.classList.add(`${this.isRead ? 'read' : 'not-read'}`);
-
-
-    var button2 = document.createElement('button');
-    button2.textContent = 'Remove';
-    button2.classList.add('delete');
-
-    
-    this.div.appendChild(h3);
-    this.div.appendChild(p);
-    this.div.appendChild(p2);
-    this.div.appendChild(button);
-    this.div.appendChild(button2);
-
-}
 
 
 function addBook(e){
