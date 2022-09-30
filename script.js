@@ -37,7 +37,7 @@ class Book{
         this.div.classList.add('card');
         
     }
-    makeCard = function (){
+    makeCard =  ()=>{
 
         this.div.setAttribute('data-book', this.title)
     
