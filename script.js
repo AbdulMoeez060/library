@@ -25,6 +25,23 @@ trigger.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 
+
+class Book{
+    constructor(title,author,pages,isRead){
+        this.title = `"${title}"`;
+        this.author = `By '${author}'`;
+        this.pages = `${pages} pages`;
+        this.isRead = isRead;
+    
+        this.div = document.createElement('div');
+        this.div.classList.add('card');
+        
+    }
+    
+
+}
+
+
 function Book(title,author,pages,isRead){
     this.title = `"${title}"`;
     this.author = `By '${author}'`;
